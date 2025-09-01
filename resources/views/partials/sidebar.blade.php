@@ -1,0 +1,128 @@
+<!-- [ Sidebar Menu ] start -->
+<nav class="pc-sidebar">
+    <div class="navbar-wrapper">
+        <div class="m-header">
+            {{-- <a href="../dashboard/index.html" class="b-brand text-primary">
+                <!-- ========   Change your logo from here   ============ -->
+                <img src="../assets/images/logo-dark.svg" class="img-fluid logo-lg" alt="logo" />
+            </a> --}}
+            <x-logo link="{{ route('dashboard') }}"></x-logo>
+        </div>
+        <div class="navbar-content">
+            <ul class="pc-navbar">
+                <li class="pc-item">
+                    <a href="{{ route('dashboard') }}" class="pc-link">
+                        <span class="pc-micon">
+                            <svg class="pc-icon">
+                                <use xlink:href="#dashboard"></use>
+                            </svg>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Dashboard">Dashboard</span>
+                    </a>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="#" class="pc-link">
+                        <span class="pc-micon">
+                            <svg class="pc-icon">
+                                <use xlink:href="#user"></use>
+                            </svg>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Manajemen User">Manajemen User</span>
+                        <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                    </a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{ route('users.index') }}"
+                                data-i18n="Users">Users</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('roles.index') }}"
+                                data-i18n="Roles">Roles</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('permissions.index') }}"
+                                data-i18n="Permissions">Permissions</a></li>
+                    </ul>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="#!" class="pc-link">
+                        <span class="pc-micon">
+                            <svg class="pc-icon">
+                                <use xlink:href="#team"></use>
+                            </svg>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Manajemen Siswa">Manajemen Siswa</span>
+                        <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                    </a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/index.html"
+                                data-i18n="Data Siswa">Data Siswa</a></li>
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/analytics.html"
+                                data-i18n="Kelas">Kelas</a></li>
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html"
+                                data-i18n="Pindah Kelas">Pindah Kelas</a></li>
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html"
+                                data-i18n="Kelulusan">Kelulusan</a></li>
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html"
+                                data-i18n="Wali Siswa">Wali Siswa</a></li>
+                    </ul>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="#!" class="pc-link">
+                        <span class="pc-micon">
+                            <svg class="pc-icon">
+                                <use xlink:href="#team"></use>
+                            </svg>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Manajemen Pegawai">Manajemen Pegawai</span>
+                        <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                    </a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/index.html"
+                                data-i18n="Data Pegawai">Data Pegawai</a></li>
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/analytics.html"
+                                data-i18n="Jabatan Pegawai">Jabatan Pegawai</a></li>
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html"
+                                data-i18n="Histori Pegawai">Histori Pegawai</a></li>
+                    </ul>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="#!" class="pc-link">
+                        <span class="pc-micon">
+                            <svg class="pc-icon">
+                                <use xlink:href="#team"></use>
+                            </svg>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Pembayaran">Pembayaran</span>
+                        <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                    </a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/index.html"
+                                data-i18n="Pembayaran">Pembayaran</a></li>
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/analytics.html"
+                                data-i18n="Pembayaran">Pembayaran</a></li>
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html"
+                                data-i18n="Histori Pembayaran">Histori Pembayaran</a></li>
+                    </ul>
+                </li>
+                <li class="pc-item pc-caption">
+                    <label data-i18n="Laporan">Laporan Keuangan</label>
+                    <i class="pc-micon">
+                        <svg class="pc-icon">
+                            <use xlink:href="#line-chart"></use>
+                        </svg>
+                    </i>
+                </li>
+
+                <li class="pc-item">
+                    <a href="../other/sample-page.html" class="pc-link">
+                        <span class="pc-micon">
+                            <svg class="pc-icon">
+                                <use xlink:href="#chrome"></use>
+                            </svg>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Laporan">Laporan</span>
+                    </a>
+                </li>
+
+            </ul>
+            @include('partials.footer_rar')
+        </div>
+    </div>
+</nav>
+<!-- [ Sidebar Menu ] end -->
