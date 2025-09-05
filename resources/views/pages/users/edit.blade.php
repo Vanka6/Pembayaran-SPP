@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tambah User')
+@section('title', 'Edit User')
 
 @push('scripts')
     <script>
@@ -35,27 +35,29 @@
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('user-management.users.index') }}">Manajemen
                                         Users</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Tambah User</li>
+                                <li class="breadcrumb-item active" aria-current="page">Edit User</li>
                             </ul>
                         </div>
                         <div class="col-md-12">
                             <div class="page-header-title">
-                                <h2 class="mb-0">Tambah User</h2>
+                                <h2 class="mb-0">Edit User</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <form action="{{ route('user-management.users.store') }}" method="POST">
+            <form action="{{ route('user-management.users.update', ['user' => $user->id]) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="card">
                     <div class="card-body">
-                        <x-input id="email" type="email" name="email" label="Email Address"
-                            placeholder="Email Address" required />
-                        <x-input id="password" type="password" name="password" label="Password" placeholder="Password"
-                            required />
-                        <x-select id="role" type="select" name="role" label="Role" :options="$roles->pluck('name', 'name')" />
+                        <x-input id="email" type="email" name="email" value="{{ $user->email }}"
+                            label="Email Address" placeholder="Email Address" required />
+                        <x-input id="password" type="password" name="password" label="Password"
+                            placeholder="Isi jika ingin memperbaharui password" />
+                        <x-select id="role" type="select" name="role" label="Role" :options="$roles->pluck('name', 'name')"
+                            :selected="$user->roles->first()?->name" />
                         <button type="submit" class="btn btn-primary">Simpan</button>
                         <a href="{{ route('user-management.users.index') }}" class="btn btn-secondary">Batal</a>
                     </div>

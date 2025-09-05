@@ -5,13 +5,13 @@ namespace App\Services;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use App\Services\Interfaces\PermissionServiceInterface;
-use App\Repositories\Interfaces\RoleRepositoryInterface;
+use App\Repositories\Interfaces\PermissionRepositoryInterface;
 
 class PermissionService implements PermissionServiceInterface
 {
     private $permissionRepository;
 
-    public function __construct(RoleRepositoryInterface $permissionRepository)
+    public function __construct(PermissionRepositoryInterface $permissionRepository)
     {
         $this->permissionRepository = $permissionRepository;
     }
@@ -34,22 +34,24 @@ class PermissionService implements PermissionServiceInterface
         }
     }
 
+    public function getIdsByNames($names)
+    {
+        try {
+            return $this->permissionRepository->findIdsByNames($names);
+        } catch (Exception $e) {
+            throw new Exception("Gagal mengambil permission Ids {$names}: " . $e->getMessage(), 0, $e);
+        }
+    }
+
     public function store(array $data)
     {
         DB::beginTransaction();
         try {
             $permission = $this->permissionRepository->create($data);
 
-            // $profile = $this->profileRepository->create([
-            //     'user_id' => $permission->id
-            // ]);
-
             DB::commit();
 
-            return [
-                'permission' => $permission,
-                // 'profile' => $profile
-            ];
+            return $permission;
         } catch (Exception $e) {
             DB::rollBack();
             throw new Exception("Gagal membuat permission: " . $e->getMessage(), 0, $e);

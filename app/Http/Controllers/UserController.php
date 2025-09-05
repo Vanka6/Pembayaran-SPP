@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use Exception;
-use App\Models\User;
-use App\Services\Interfaces\RoleServiceInterface;
 use App\Services\Interfaces\UserServiceInterface;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
+use App\Services\Interfaces\RoleServiceInterface;
 
 class UserController extends Controller
 {
-
     private $userService;
     private $roleService;
 
@@ -23,23 +20,17 @@ class UserController extends Controller
         $this->roleService = $roleService;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         try {
             $users = $this->userService->getAll();
             return view('pages.users.index', compact('users'));
         } catch (Exception $e) {
-            Log::error('Error users: ' . $e->getMessage());
-            return back()->with('error', 'Terjadi kesalahan saat membuka halaman users.');
+            Log::error('Error users index: ' . $e->getMessage());
+            return back()->with('error', 'Terjadi kesalahan saat memuat data users.');
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         try {
@@ -51,44 +42,62 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreUserRequest $request)
     {
-        $user = $request->validated();
-        dd($user);
+        try {
+            $this->userService->store($request->validated());
+            return redirect()
+                ->route('user-management.users.index')
+                ->with('success', 'User berhasil ditambahkan.');
+        } catch (Exception $e) {
+            Log::error('Error store user: ' . $e->getMessage());
+            return back()
+                ->withInput()
+                ->with('error', 'Terjadi kesalahan saat menyimpan data user.');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
+    public function edit($id)
     {
-        //
+        try {
+            $user  = $this->userService->getById($id);
+            $roles = $this->roleService->getAll();
+            return view('pages.users.edit', compact('user', 'roles'));
+        } catch (Exception $e) {
+            Log::error('Error edit user: ' . $e->getMessage());
+            return redirect()
+                ->route('user-management.users.index')
+                ->with('error', 'User tidak ditemukan.');
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
+    public function update(UpdateUserRequest $request, $id)
     {
-        //
+        try {
+            $this->userService->update($id, $request->validated());
+            return redirect()
+                ->route('user-management.users.index')
+                ->with('success', 'User berhasil diperbarui.');
+        } catch (Exception $e) {
+            Log::error('Error update user: ' . $e->getMessage());
+            return back()
+                ->withInput()
+                ->with('error', 'Terjadi kesalahan saat memperbarui data user.');
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateUserRequest $request, User $user)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
-    {
-        //
+        try {
+            $this->userService->destroy($id);
+            return redirect()
+                ->route('user-management.users.index')
+                ->with('success', 'User berhasil dihapus.');
+        } catch (Exception $e) {
+            Log::error('Error delete user: ' . $e->getMessage());
+            return redirect()
+                ->route('user-management.users.index')
+                ->with('error', 'Terjadi kesalahan saat menghapus user.');
+        }
     }
 }

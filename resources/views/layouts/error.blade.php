@@ -3,7 +3,8 @@
 <!-- [Head] start -->
 
 <head>
-    <title>@yield('title', 'Default Page')</title>
+    <title>Site is Under Maintenance | Pembayaran SPP</title>
+    <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -33,12 +34,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" id="main-style-link" />
     <link rel="stylesheet" href="{{ asset('assets/css/style-preset.css') }}" />
 
-    @stack('styles')
 </head>
 <!-- [Head] end -->
 <!-- [Body] Start -->
 
-<body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light">
+<body>
     <!-- [ Pre-loader ] start -->
     <div class="loader-bg">
         <div class="loader-track">
@@ -46,14 +46,12 @@
         </div>
     </div>
     <!-- [ Pre-loader ] End -->
-    @include('partials.sidebar')
-    @include('partials.navbar')
-    <x-toast />
-    @yield('content')
-    @include('partials.footer')
-    @include('partials.customizer')
 
-    <!-- Scripts -->
+    <!-- [ Main Content ] start -->
+    @yield('content')
+    <!-- [ Main Content ] end -->
+    <!-- [ Main Content ] end -->
+    <!-- Required Js -->
     <script src="{{ asset('assets/js/plugins/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/simplebar.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/bootstrap.min.js') }}"></script>
@@ -65,6 +63,9 @@
     <script src="{{ asset('assets/js/theme.js') }}"></script>
     <script src="{{ asset('assets/js/multi-lang.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/feather.min.js') }}"></script>
+
+
+
     <script>
         layout_change('light');
     </script>
@@ -84,18 +85,6 @@
     <script>
         font_change('Public-Sans');
     </script>
-
-    @stack('scripts')
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const toastEl = document.getElementById('liveToast');
-            if (toastEl) {
-                const toast = new bootstrap.Toast(toastEl);
-                toast.show();
-            }
-        });
-    </script>
-
 </body>
 <!-- [Body] end -->
 
