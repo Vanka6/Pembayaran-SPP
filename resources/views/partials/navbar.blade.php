@@ -22,226 +22,12 @@
                         </i>
                     </a>
                 </li>
-                <li class="dropdown pc-h-item d-inline-flex d-md-none">
-                    <a class="pc-head-link dropdown-toggle arrow-none m-0" data-bs-toggle="dropdown" href="#"
-                        role="button" aria-haspopup="false" aria-expanded="false">
-                        <i>
-                            <svg class="pc-icon">
-                                <use xlink:href="#search"></use>
-                            </svg>
-                        </i>
-                    </a>
-                    <div class="dropdown-menu pc-h-dropdown drp-search">
-                        <form class="px-3">
-                            <div class="mb-0 d-flex align-items-center">
-                                <i data-feather="search"></i>
-                                <input type="search" class="form-control border-0 shadow-none"
-                                    placeholder="Search here. . ." />
-                            </div>
-                        </form>
-                    </div>
-                </li>
-                <li class="pc-h-item d-none d-md-inline-flex">
-                    <form class="header-search">
-                        <i data-feather="search" class="icon-search"></i>
-                        <input type="search" class="form-control" placeholder="Search here. . ." />
-                    </form>
-                </li>
+
             </ul>
         </div>
         <!-- [Mobile Media Block end] -->
         <div class="ms-auto">
             <ul class="list-unstyled">
-                <li class="dropdown pc-h-item pc-mega-menu">
-                    <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
-                        role="button" aria-haspopup="false" aria-expanded="false">
-                        <i>
-                            <svg class="pc-icon">
-                                <use xlink:href="#windows"></use>
-                            </svg>
-                        </i>
-                    </a>
-                    <div class="dropdown-menu pc-h-dropdown pc-mega-dmenu">
-                        <div class="row g-0">
-                            <div class="col image-block">
-                                <h2 class="text-white">Explore Components</h2>
-                                <p class="text-white my-4">Try our pre made component pages to check how it feels
-                                    and suits as per your need.</p>
-                                <div class="row align-items-end">
-                                    <div class="col-auto">
-                                        <div class="btn btn btn-light">
-                                            View All
-                                            <i class="ti ti-arrow-narrow-right"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../assets/images/mega-menu/chart.svg" alt="image"
-                                            class="img-fluid img-charts" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <h6 class="mega-title">UI Components</h6>
-                                <ul class="pc-mega-list">
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Alerts
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Accordions
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Avatars
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Badges
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Breadcrumbs
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Button
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Buttons Groups
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col">
-                                <h6 class="mega-title">UI Components</h6>
-                                <ul class="pc-mega-list">
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Menus
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Media Sliders / Carousel
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Modals
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Pagination
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Progress Bars &amp; Graphs
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Search Bar
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Tabs
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col">
-                                <h6 class="mega-title">Advance Components</h6>
-                                <ul class="pc-mega-list">
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Advanced Stats
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Advanced Cards
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Lightbox
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-circle"></i>
-                                            Notification
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="dropdown pc-h-item">
-                    <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
-                        role="button" aria-haspopup="false" aria-expanded="false">
-                        <i>
-                            <svg class="pc-icon">
-                                <use xlink:href="#translation"></use>
-                            </svg>
-                        </i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end pc-h-dropdown lng-dropdown">
-                        <a href="#!" class="dropdown-item" data-lng="en">
-                            <span>
-                                English
-                                <small>(UK)</small>
-                            </span>
-                        </a>
-                        <a href="#!" class="dropdown-item" data-lng="fr">
-                            <span>
-                                français
-                                <small>(French)</small>
-                            </span>
-                        </a>
-                        <a href="#!" class="dropdown-item" data-lng="ro">
-                            <span>
-                                Română
-                                <small>(Romanian)</small>
-                            </span>
-                        </a>
-                        <a href="#!" class="dropdown-item" data-lng="cn">
-                            <span>
-                                中国人
-                                <small>(Chinese)</small>
-                            </span>
-                        </a>
-                    </div>
-                </li>
                 <li class="dropdown pc-h-item">
                     <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" aria-expanded="false">
@@ -337,97 +123,6 @@
                     </div>
                 </li>
                 <li class="dropdown pc-h-item">
-                    <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
-                        role="button" aria-haspopup="false" aria-expanded="false">
-                        <i>
-                            <svg class="pc-icon">
-                                <use xlink:href="#mail"></use>
-                            </svg>
-                        </i>
-                    </a>
-                    <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown">
-                        <div class="dropdown-header d-flex align-items-center justify-content-between">
-                            <h5 class="m-0">Message</h5>
-                            <a href="#!" class="pc-head-link bg-transparent"><i
-                                    class="ti ti-x text-danger"></i></a>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown-header px-0 text-wrap message-notification-scroll position-relative"
-                            style="max-height: calc(100vh - 215px)">
-                            <div class="list-group list-group-flush w-100">
-                                <a class="list-group-item list-group-item-action">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0">
-                                            <img src="../assets/images/user/avatar-2.jpg" alt="user-image"
-                                                class="user-avtar" />
-                                        </div>
-                                        <div class="flex-grow-1 ms-1">
-                                            <span class="float-end text-muted">3:00 AM</span>
-                                            <p class="text-body mb-1">
-                                                It's
-                                                <b>Cristina danny's</b>
-                                                birthday today.
-                                            </p>
-                                            <span class="text-muted">2 min ago</span>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="list-group-item list-group-item-action">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0">
-                                            <img src="../assets/images/user/avatar-1.jpg" alt="user-image"
-                                                class="user-avtar" />
-                                        </div>
-                                        <div class="flex-grow-1 ms-1">
-                                            <span class="float-end text-muted">6:00 PM</span>
-                                            <p class="text-body mb-1">
-                                                <b>Aida Burg</b>
-                                                commented your post.
-                                            </p>
-                                            <span class="text-muted">5 August</span>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="list-group-item list-group-item-action">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0">
-                                            <img src="../assets/images/user/avatar-3.jpg" alt="user-image"
-                                                class="user-avtar" />
-                                        </div>
-                                        <div class="flex-grow-1 ms-1">
-                                            <span class="float-end text-muted">2:45 PM</span>
-                                            <p class="text-body mb-1"><b>There was a failure to your setup.</b>
-                                            </p>
-                                            <span class="text-muted">7 hours ago</span>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="list-group-item list-group-item-action">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0">
-                                            <img src="../assets/images/user/avatar-4.jpg" alt="user-image"
-                                                class="user-avtar" />
-                                        </div>
-                                        <div class="flex-grow-1 ms-1">
-                                            <span class="float-end text-muted">9:10 PM</span>
-                                            <p class="text-body mb-1">
-                                                <b>Cristina Danny</b>
-                                                invited to join
-                                                <b>Meeting.</b>
-                                            </p>
-                                            <span class="text-muted">Daily scrum meeting time</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="text-center py-2">
-                            <a href="#!" class="link-primary">View all</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="dropdown pc-h-item">
                     <a class="pc-head-link me-0" href="#" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvas_pc_layout">
                         <i>
@@ -440,19 +135,19 @@
                 <li class="dropdown pc-h-item header-user-profile">
                     <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
-                        <img src="../assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar" />
+                        <img src="{{ asset('assets/images/user/avatar-2.jpg') }}" alt="user-image" class="user-avtar" />
                         <span>Stebin Ben</span>
                     </a>
                     <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
                         <div class="dropdown-header">
                             <div class="d-flex mb-1">
                                 <div class="flex-shrink-0">
-                                    <img src="../assets/images/user/avatar-2.jpg" alt="user-image"
+                                    <img src="{{ asset('assets/images/user/avatar-2.jpg') }}" alt="user-image"
                                         class="user-avtar wid-35" />
                                 </div>
                                 <div class="flex-grow-1 ms-3">
                                     <h6 class="mb-1">Stebin Ben</h6>
-                                    <span>UI/UX Designer</span>
+                                    <span>{{ auth()->user()->roles->first()?->name }}</span>
                                 </div>
                                 <a href="#!" class="pc-head-link bg-transparent"><i
                                         class="ti ti-power text-danger"></i></a>
@@ -495,7 +190,7 @@
                                     <i class="ti ti-wallet"></i>
                                     <span>Billing</span>
                                 </a>
-                                <a href="#!" class="dropdown-item">
+                                <a href="{{ route('logout') }}" class="dropdown-item">
                                     <i class="ti ti-power"></i>
                                     <span>Logout</span>
                                 </a>

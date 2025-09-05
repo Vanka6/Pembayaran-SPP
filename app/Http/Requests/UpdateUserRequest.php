@@ -11,13 +11,15 @@ class UpdateUserRequest extends FormRequest
     public function authorize(): bool
     {
         /** @var \Illuminate\Http\Request $this */
-        return $this->user()->can('update', $this->route('user'));
+        return $this->user()->can('update', $this->route('user')) || $this->user()->hasRole('admin');
     }
 
     public function rules(): array
     {
         /** @var \Illuminate\Http\Request $this */
-        $userId = $this->route('user');
+        $userId = $this->route('user') instanceof \App\Models\User
+            ? $this->route('user')->id
+            : $this->route('user');
 
         return [
             'email' => [

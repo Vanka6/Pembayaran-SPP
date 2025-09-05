@@ -17,9 +17,7 @@ use App\Http\Controllers\PermissionController;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/login');
-});
+Route::get('/', fn() => redirect()->route('login'));
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -30,28 +28,18 @@ Route::middleware(['auth'])->group(function () {
     /**
      * Dashboard Management Routes
      */
-    Route::get('/dashboard', function () {
-        return view('pages.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', fn() => view('pages.dashboard'))->name('dashboard');
 
     /**
      * Auth Management Routes
      */
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
-    /**
-     * User Management Routes
-     */
-    Route::resource('/users', UserController::class);
-
-    /**
-     * Role Management Routes
-     */
-    Route::resource('/roles', RoleController::class);
-
-    /**
-     * Permission Management Routes
-     */
-    Route::resource('/permissions', PermissionController::class);
+    // Manajemen User
+    Route::prefix('user-management')->as('user-management.')->group(function () {
+        Route::resource('users', UserController::class);
+        Route::resource('roles', RoleController::class);
+        Route::resource('permissions', PermissionController::class);
+    });
 });

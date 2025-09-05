@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Traits\HasFormattedTimestamps;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasFormattedTimestamps;
 
     /**
      * The attributes that are mass assignable.
@@ -48,7 +50,7 @@ class User extends Authenticatable
      */
     public function roles()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class)->withTimestamps();
     }
 
     public function permissions()
@@ -59,11 +61,6 @@ class User extends Authenticatable
     /**
      * Helper Functions
      */
-
-    public function getFormattedCreatedAtAttribute()
-    {
-        return $this->created_at->format('d M Y H:i');
-    }
 
     public function hasRole(string $roleName): bool
     {

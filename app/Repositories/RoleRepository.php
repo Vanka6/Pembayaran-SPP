@@ -2,71 +2,60 @@
 
 namespace App\Repositories;
 
-use Exception;
 use App\Models\Role;
-use Illuminate\Support\Facades\DB;
 use App\Repositories\Interfaces\RoleRepositoryInterface;
+use Illuminate\Support\Collection;
 
 class RoleRepository implements RoleRepositoryInterface
 {
-    public function findAll()
+    /**
+     * Get all roles.
+     */
+    public function findAll(): Collection
     {
-        try {
-            return Role::all();
-        } catch (Exception $e) {
-            throw new Exception("Gagal mengambil data role: " . $e->getMessage(), 0, $e);
-        }
+        return Role::all();
     }
 
-    public function findById($id)
+    /**
+     * Find role by ID.
+     */
+    public function findById(int $id): Role
     {
-        try {
-            return Role::findOrFail($id);
-        } catch (Exception $e) {
-            throw new Exception("Role dengan ID {$id} tidak ditemukan: " . $e->getMessage(), 0, $e);
-        }
+        return Role::findOrFail($id);
     }
 
-    public function create(array $data)
+    /**
+     * Find role by name.
+     */
+    public function findByName(string $name): Role
     {
-        DB::beginTransaction();
-        try {
-            $role = Role::create($data);
-            DB::commit();
-            return $role;
-        } catch (Exception $e) {
-            DB::rollBack();
-            throw new Exception("Gagal membuat role: " . $e->getMessage(), 0, $e);
-        }
+        return Role::where('name', $name)->firstOrFail();
     }
 
-    public function update($id, array $data)
+    /**
+     * Create a new role.
+     */
+    public function create(array $data): Role
     {
-        DB::beginTransaction();
-        try {
-            $role = Role::findOrFail($id);
-
-            $role->update($data);
-
-            DB::commit();
-            return $role;
-        } catch (Exception $e) {
-            DB::rollBack();
-            throw new Exception("Gagal mengupdate role ID {$id}: " . $e->getMessage(), 0, $e);
-        }
+        return Role::create($data);
     }
 
-    public function delete($id)
+    /**
+     * Update an existing role.
+     */
+    public function update(int $id, array $data): Role
     {
-        DB::beginTransaction();
-        try {
-            $role = Role::findOrFail($id);
-            $role->delete();
-            DB::commit();
-            return true;
-        } catch (Exception $e) {
-            DB::rollBack();
-            throw new Exception("Gagal menghapus role ID {$id}: " . $e->getMessage(), 0, $e);
-        }
+        $role = $this->findById($id);
+        $role->update($data);
+        return $role;
+    }
+
+    /**
+     * Delete a role by ID.
+     */
+    public function delete(int $id): bool
+    {
+        $role = $this->findById($id);
+        return $role->delete();
     }
 }
