@@ -56,6 +56,8 @@
                         <x-input id="password" type="password" name="password" label="Password" placeholder="Password"
                             required />
                         <x-select id="role" type="select" name="role" label="Role" :options="$roles->pluck('name', 'name')" />
+                        <x-select id="status" type="select" name="status" label="Status" :options="collect($statuses)->mapWithKeys(fn($status) => [$status->value => $status->label()])"
+                            :selected="old('status', $user->status ?? '')" />
                         <button type="submit" class="btn btn-primary">Simpan</button>
                         <a href="{{ route('user-management.users.index') }}" class="btn btn-secondary">Batal</a>
                     </div>

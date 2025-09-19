@@ -109,10 +109,10 @@
                             </td>
                             <td>{{ $role->formatted_created_at }}</td>
                             <td>
-                                <a href="{{ route('user-management.roles.show', $role->id) }}"
+                                {{-- <a href="{{ route('user-management.roles.show', $role->id) }}"
                                     class="btn btn-sm btn-success me-1">
                                     Detail Role
-                                </a>
+                                </a> --}}
                                 <a href="{{ route('user-management.roles.edit', $role->id) }}"
                                     class="btn btn-sm btn-warning me-1">
                                     Edit

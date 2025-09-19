@@ -58,6 +58,7 @@
                             placeholder="Isi jika ingin memperbaharui password" />
                         <x-select id="role" type="select" name="role" label="Role" :options="$roles->pluck('name', 'name')"
                             :selected="$user->roles->first()?->name" />
+                        <x-select id="status" name="status" label="Status" :options="collect($statuses)->mapWithKeys(fn($status) => [$status->value => $status->label()])" :selected="old('status', $user->status ?? '')" />
                         <button type="submit" class="btn btn-primary">Simpan</button>
                         <a href="{{ route('user-management.users.index') }}" class="btn btn-secondary">Batal</a>
                     </div>

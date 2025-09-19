@@ -4,7 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\SchoolYearController;
+use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\DepartementClassroomController;
+use App\Http\Controllers\StudentGuardianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
     /**
      * Auth Management Routes
      */
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
     // Manajemen User
@@ -41,5 +47,18 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('users', UserController::class);
         Route::resource('roles', RoleController::class);
         Route::resource('permissions', PermissionController::class);
+    });
+
+    Route::prefix('student-management')->as('student-management.')->group(function () {
+        Route::resource('students', StudentController::class);
+        Route::resource('classrooms', ClassroomController::class);
+        Route::resource('school-years', SchoolYearController::class);
+        Route::resource('departements', DepartementController::class);
+        Route::resource('student-guardians', StudentGuardianController::class);
+
+        /**
+         * Departement Classroom Routes
+         */
+        Route::resource('departement-classroom', DepartementClassroomController::class);
     });
 });

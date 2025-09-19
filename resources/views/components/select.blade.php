@@ -6,7 +6,9 @@
     @endif
     <select id="{{ $id }}" name="{{ $name }}" required
         {{ $attributes->merge(['class' => 'form-control']) }}>
-        <option value="" disabled {{ old($name, $selected) ? '' : 'selected' }}>~~ Pilih Role ~~</option>
+        <option value="" disabled {{ old($name, $selected) ? '' : 'selected' }}>~~ Pilih
+            {{ ucwords(str_replace('_', ' ', $name)) }} ~~
+        </option>
         @foreach ($options as $value => $text)
             <option value="{{ $value }}" {{ old($name, $selected) == $value ? 'selected' : '' }}>
                 {{ $text }}

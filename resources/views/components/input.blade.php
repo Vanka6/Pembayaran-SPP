@@ -10,7 +10,8 @@
             value="{{ old($name, $value) }}" placeholder="{{ $placeholder }}"
             {{ $attributes->merge(['class' => 'form-control']) }}>
         @if ($type === 'password')
-            <button type="button" class="btn btn-outline-secondary toggle-password" data-target="{{ $id }}">
+            <button id="{{ $id }}" type="button" class="btn btn-outline-secondary toggle-password"
+                data-target="{{ $id }}">
                 <i class="fas fa-eye"></i>
             </button>
         @endif

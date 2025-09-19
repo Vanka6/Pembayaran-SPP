@@ -109,10 +109,10 @@
                             </td>
                             <td>{{ $permission->formatted_created_at }}</td>
                             <td>
-                                <a href="{{ route('user-management.permissions.show', $permission->id) }}"
+                                {{-- <a href="{{ route('user-management.permissions.show', $permission->id) }}"
                                     class="btn btn-sm btn-success me-1">
                                     Detail Permission
-                                </a>
+                                </a> --}}
                                 <a href="{{ route('user-management.permissions.edit', $permission->id) }}"
                                     class="btn btn-sm btn-warning me-1">
                                     Edit

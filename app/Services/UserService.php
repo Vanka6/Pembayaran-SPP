@@ -23,18 +23,42 @@ class UserService implements UserServiceInterface
     public function getAll()
     {
         try {
-            return $this->userRepository->findAll();
+            return $this->userRepository->findAll(['student', 'studentGuardian']);
         } catch (Exception $e) {
             throw new Exception("Gagal mengambil semua data user: " . $e->getMessage(), 0, $e);
         }
     }
 
+    public function getAvailableStudentUsers(?string $status = null, ?string $excludeEmail = null)
+    {
+        try {
+            return $this->userRepository->findUsersWithoutLinkedStudent($status, $excludeEmail);
+        } catch (Exception $e) {
+            throw new Exception(
+                "Gagal mengambil semua data user yang tidak berelasi dengan siswa: " . $e->getMessage(),
+                0,
+                $e
+            );
+        }
+    }
+
+
+
     public function getById($id)
     {
         try {
-            return $this->userRepository->findById($id);
+            return $this->userRepository->findById($id, ['student', 'studentGuardian']);
         } catch (Exception $e) {
             throw new Exception("Gagal mengambil user ID {$id}: " . $e->getMessage(), 0, $e);
+        }
+    }
+
+    public function getByEmail(string $email)
+    {
+        try {
+            return $this->userRepository->findByEmail($email, ['student', 'studentGuardian']);
+        } catch (Exception $e) {
+            throw new Exception("Gagal mengambil user ID {$email}: " . $e->getMessage(), 0, $e);
         }
     }
 
@@ -51,7 +75,7 @@ class UserService implements UserServiceInterface
                 $data['role'] = $this->roleService->getByName($data['role'])->id;
             }
 
-            $role = $data['role'] ?? []; // bisa name atau id
+            $role = $data['role'] ?? [];
             unset($data['role']);
 
             $user = $this->userRepository->create($data);
@@ -77,7 +101,17 @@ class UserService implements UserServiceInterface
             if (!empty($data['role'])) {
                 $data['role'] = $this->roleService->getByName($data['role'])->id;
             }
+
+            $role = $data['role'] ?? [];
+            unset($data['role']);
+
             $user = $this->userRepository->update($id, $data);
+
+            // Hanya sync kalau ada role baru
+            if ($role) {
+                $user->roles()->sync($role);
+            }
+
             DB::commit();
             return $user;
         } catch (Exception $e) {

@@ -8,6 +8,7 @@
                 @endisset
             </div>
             <div>
+                {{ $plotActions ?? '' }}
                 {{ $headerActions ?? '' }} {{-- Slot tambahan untuk tombol --}}
             </div>
         </div>

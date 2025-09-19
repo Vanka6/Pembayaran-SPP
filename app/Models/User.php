@@ -58,6 +58,21 @@ class User extends Authenticatable
         return $this->belongsToMany(Permission::class);
     }
 
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
+
+    public function studentGuardian()
+    {
+        return $this->hasOne(StudentGuardian::class);
+    }
+
+    // public function employee()
+    // {
+    //     return $this->hasOne(Employee::class);
+    // }
+
     /**
      * Helper Functions
      */
@@ -65,5 +80,27 @@ class User extends Authenticatable
     public function hasRole(string $roleName): bool
     {
         return $this->roles()->where('name', $roleName)->exists();
+    }
+
+    /**
+     * Accessor Function
+     */
+    public function getFullnameAttribute()
+    {
+        // Cek satu-satu kalau ada fullname, return yang ditemukan pertama kali
+        if ($this->student && $this->student->fullname) {
+            return $this->student->fullname;
+        }
+
+        if ($this->studentGuardian && $this->studentGuardian->fullname) {
+            return $this->studentGuardian->fullname;
+        }
+
+        // if ($this->employee && $this->employee->fullname) {
+        //     return $this->employee->fullname;
+        // }
+
+        // Default fallback kalau tidak ada fullname di mana-mana
+        return $this->name ?? 'No Name';
     }
 }

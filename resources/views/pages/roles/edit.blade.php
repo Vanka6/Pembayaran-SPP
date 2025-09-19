@@ -31,15 +31,14 @@
                     <div class="card-body">
                         <x-input id="name" type="text" name="name" value="{{ $role->name }}" label="Role Name"
                             placeholder="Role Name" required />
-                        <x-textarea id="description" name="description" value="{{ $role->description }}" label="Description"
+                        <x-textarea id="description" name="description"
+                            value=" {{ old('description', $role->description ?? '') }}" label="Description"
                             placeholder="Description..." rows="5">
-                            {{ old('description', $user->description ?? '') }}
                         </x-textarea>
 
                         @if ($permissions->isNotEmpty())
                             <div class="mb-3">
                                 <label class="form-label">Permissions</label>
-
                                 <div class="row">
                                     @foreach ($permissions as $permission)
                                         <div class="col-md-4">

@@ -78,7 +78,7 @@
             <!-- [ breadcrumb ] end -->
             <div class="row">
                 <!-- Base style - Hover table start -->
-                <x-datatable title="Data Users" subtitle="This table use to collect data user" :columns="['No', 'Name', 'Email', 'Role', 'Permission', 'Created At', 'Action']"
+                <x-datatable title="Data Users" subtitle="This table use to collect data user" :columns="['No', 'Name', 'Email', 'Role', 'Permission', 'Status', 'Created At', 'Action']"
                     id="table-style-hover">
 
                     <x-slot name="headerActions">
@@ -90,7 +90,7 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>Akubot</td>
+                            <td>{{ $user->fullname }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
                                 @foreach ($user->roles as $role)
@@ -104,12 +104,13 @@
                                     @endforeach
                                 </div>
                             </td>
+                            <td>{{ $user->status }}</td>
                             <td>{{ $user->formatted_created_at }}</td>
                             <td>
-                                <a href="{{ route('user-management.users.show', $user->id) }}"
+                                {{-- <a href="{{ route('user-management.users.show', $user->id) }}"
                                     class="btn btn-sm btn-success me-1">
                                     Detail User
-                                </a>
+                                </a> --}}
                                 <a href="{{ route('user-management.users.edit', $user->id) }}"
                                     class="btn btn-sm btn-warning me-1">
                                     Edit

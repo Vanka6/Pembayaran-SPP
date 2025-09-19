@@ -50,7 +50,7 @@
                 @endcan
 
 
-                @can('manage-employee')
+                {{-- @can('manage-employees')
                     <li class="pc-item pc-hasmenu">
                         <a href="#!" class="pc-link">
                             <span class="pc-micon">
@@ -70,7 +70,9 @@
                                     data-i18n="Histori Pegawai">Histori Pegawai</a></li>
                         </ul>
                     </li>
-                @endcan
+                @endcan --}}
+
+
                 <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link">
                         <span class="pc-micon">
@@ -82,15 +84,19 @@
                         <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
                     </a>
                     <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link" href="../dashboard/index.html"
+                        <li class="pc-item"><a class="pc-link" href="{{ route('student-management.students.index') }}"
                                 data-i18n="Data Siswa">Data Siswa</a></li>
-                        <li class="pc-item"><a class="pc-link" href="../dashboard/analytics.html"
-                                data-i18n="Kelas">Kelas</a></li>
-                        <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html"
-                                data-i18n="Pindah Kelas">Pindah Kelas</a></li>
-                        <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html"
-                                data-i18n="Kelulusan">Kelulusan</a></li>
-                        <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html"
+                        <li class="pc-item"><a class="pc-link"
+                                href="{{ route('student-management.classrooms.index') }}" data-i18n="Kelas">Kelas</a>
+                        </li>
+                        <li class="pc-item"><a class="pc-link"
+                                href="{{ route('student-management.school-years.index') }}"
+                                data-i18n="Tahun Ajaran">Tahun Ajaran</a></li>
+                        <li class="pc-item"><a class="pc-link"
+                                href="{{ route('student-management.departements.index') }}"
+                                data-i18n="Jurusan">Jurusan</a></li>
+                        <li class="pc-item"><a class="pc-link"
+                                href="{{ route('student-management.student-guardians.index') }}"
                                 data-i18n="Wali Siswa">Wali Siswa</a></li>
                     </ul>
                 </li>
